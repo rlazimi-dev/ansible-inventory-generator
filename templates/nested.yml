@@ -1,0 +1,8 @@
+all:                    #create group named "all"
+  hosts:
+    ".*":               #the "all" group will have all children
+  children:
+    "[a-zA-z]+":
+      nth_match: 4      #group by 4th section of dns name
+      children:
+        "[a-zA-Z]+":    #group by prefix of dns name
